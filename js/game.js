@@ -112,13 +112,16 @@ function main() {
     
     // create a solar system
 
-    const solarSystem = new SolarSystem();
+    const nSides = 8;   // we'll use 8 sided planets so we can see the rotation clearly
+
+    const yellow = [1,1,0,1];               // Yellow = Red + Green
+    const sun = new Circle(8, yellow);
 
     // === Per Frame operations ===
 
     // update objects in the scene
     let update = function(deltaTime) {
-        solarSystem.update(deltaTime);
+        
     };
 
     // redraw the scene
@@ -134,8 +137,8 @@ function main() {
         const viewMatrix = Matrix.scale(sx, sy);
         gl.uniformMatrix3fv(viewMatrixUniform, false, viewMatrix);
 
-        // draw the snake
-        solarSystem.render(gl, worldMatrixUniform, colourUniform)
+        // render everything
+        sun.renderSelf(gl, colourUniform);
     };
 
     // animation loop
