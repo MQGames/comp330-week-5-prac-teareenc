@@ -112,10 +112,8 @@ function main() {
     
     // create a solar system
 
-    const nSides = 8;   // we'll use 8 sided planets so we can see the rotation clearly
-
     const yellow = [1,1,0,1];               // Yellow = Red + Green
-    const sun = new Circle(8, yellow);
+    const sun = new Circle(yellow);
 
     // === Per Frame operations ===
 
