@@ -27,7 +27,9 @@ precision mediump float;
 uniform vec4 u_colour;
 
 void main() {
-  gl_FragColor = u_colour; 
+    // set the fragment colour
+
+    gl_FragColor = u_colour; 
 }
 `;
 
@@ -63,10 +65,8 @@ function createProgram(gl, vertexShader, fragmentShader) {
  function resize(canvas) {
     const resolution = window.devicePixelRatio || 1.0;
 
-    const displayWidth = 
-        Math.floor(canvas.clientWidth * resolution);
-    const displayHeight = 
-        Math.floor(canvas.clientHeight * resolution);
+    const displayWidth = Math.floor(canvas.clientWidth * resolution);
+    const displayHeight = Math.floor(canvas.clientHeight * resolution);
 
     if (canvas.width !== displayWidth || canvas.height !== displayHeight) {
         canvas.width = canvas.clientWidth;
@@ -129,7 +129,7 @@ function main() {
         gl.clearColor(0, 0, 0, 1);
         gl.clear(gl.COLOR_BUFFER_BIT);
 
-        // scale the view matrix to the canvas size
+        // scale the view matrix to the canvas size & resolution
         const sx = 2 * resolution / canvas.width;
         const sy = 2 * resolution / canvas.height;
         const viewMatrix = Matrix.scale(sx, sy);
