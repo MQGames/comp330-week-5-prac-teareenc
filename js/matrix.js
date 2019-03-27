@@ -23,6 +23,7 @@ class Matrix {
     // The identity matrix
     static identity() {
         return new Float32Array([ 
+        //  i       j       T
             1,0,0,  0,1,0,  0,0,1
         ]);
     }
@@ -32,7 +33,8 @@ class Matrix {
         check(isNumber(dx, dy));
 
         return new Float32Array([
-            // fill this in
+        //  i       j       T
+            1,0,0,  0,1,0,  dx,dy,1
         ]);
     }
 
@@ -40,8 +42,12 @@ class Matrix {
     static rotation(angle) {
         check(isNumber(angle));
 
+        const c = Math.cos(angle);
+        const s = Math.sin(angle);
+
         return new Float32Array([
-            // fill this in
+        //  i        j       T
+            c,s,0,  -s,c,0,  0,0,1
         ]);
     }
 
@@ -50,7 +56,8 @@ class Matrix {
         check(isNumber(sx, sy));
 
         return new Float32Array([
-            // fill this in
+        //  i        j        T
+            sx,0,0,  0,sy,0,  0,0,1
         ]);
     }
 
