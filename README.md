@@ -8,3 +8,4 @@ Files
         input.js        Input manager
         matrix.js       Matrix library
         debugging.js    Debugging libray
+        circle.js       Class for drawing circles
