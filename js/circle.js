@@ -2,8 +2,6 @@
 
 class Circle {
 
-    nSides = 8;
-
     /**
     * Construct a polygon representing a unit circle with the specified number of sides and colour
     */
@@ -11,6 +9,7 @@ class Circle {
     constructor(colour) {
         check(isArray(colour));
 
+        const nSides = 8;
         this.colour = colour;
         this.points = new Float32Array(this.nSides * 2);
 
