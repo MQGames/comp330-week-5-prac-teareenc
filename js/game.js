@@ -113,7 +113,21 @@ function main() {
     // create a solar system
 
     const yellow = [1,1,0,1];               // Yellow = Red + Green
+	const blue = [0,0,1,1];
+	const red = [1,0,0,1];
+	const grey = [0.5,0.5,0.5,1];
+	
     const sun = new Circle(yellow);
+	const earth = new Circle(blue);
+	earth.parent = sun;
+	const moon = new Circle(grey);
+	moon.parent = earth;
+	const mars = new Circle(red);
+	mars.parent = sun;
+	const phobos = new Circle(grey);
+	phobos.parent = mars;
+	const deimos = new Circle(grey);
+	deimos.parent = mars;
 
     // === Per Frame operations ===
 
@@ -136,7 +150,8 @@ function main() {
         gl.uniformMatrix3fv(viewMatrixUniform, false, viewMatrix);
 
         // render everything
-        sun.renderSelf(gl, colourUniform);
+		gl.uniformMatrix3fv(worldMatrixUniform, false, Matrix.identity());
+		sun.renderSelf(gl, colourUniform);
     };
 
     // animation loop
